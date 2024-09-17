@@ -1,23 +1,14 @@
 class Solution {
     public int missingNumber(int[] nums) {
+        int n = nums.length;
+        int expectedSum = (n * (n + 1)) / 2;  
+        int actualSum = 0;
 
-        Arrays.sort(nums);
-        int res = -1;
-        int i = 0;
-
-        while(i<nums.length){
-            if(i!=nums[i]){
-                res = i;
-                break;
-            }
-            i++;
+        for (int num : nums) {
+            actualSum += num;
         }
 
-        if(res==-1 && nums[nums.length-1]==nums.length-1){
-            res = nums.length;
-        }
-
-        return res;
+        return expectedSum - actualSum;
 
         
     }
